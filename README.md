@@ -2,8 +2,18 @@
 
 Compressed model by FLOPs and MBs up to 10 times using quantisation and distillation.
 
-## Models loading
-To load models use appropriate function from utils.py
+## Streaming
+
+Stream models is saved in `stream_jit.ph`
+
+For streaming use 
+```
+python stream.py 
+```
+
+## Checkpoints loading
+To load ckpts use appropriate function from utils.py
+
 
 ## Wandb Report
 
