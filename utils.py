@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from models import CRNN
+from models import CRNN, CRNNPool
 from base_config import BaseConfig
 import dataclasses
 
@@ -48,6 +48,15 @@ def load_model(path):
     config_dict = load_dict['config_dict']
     config = BaseConfig(**config_dict)
     model = CRNN(config)
+    model.load_state_dict(load_dict['model_state'])
+
+    return model
+
+def load_model_pool(path):
+    load_dict = torch.load(path)
+    config_dict = load_dict['config_dict']
+    config = BaseConfig(**config_dict)
+    model = CRNNPool(config)
     model.load_state_dict(load_dict['model_state'])
 
     return model
